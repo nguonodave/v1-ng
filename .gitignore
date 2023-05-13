@@ -1,0 +1,11 @@
+__pycache__/
+db.sqlite3
+node_modules
+NFenv
+src
+dist/static/boxicons
+package-lock.json
+package.json
+tailwind.config.js
+.env
+projectCategories

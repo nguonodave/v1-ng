@@ -1,0 +1,323 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static '/css/main.css' %}">
+        <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+        <link rel="stylesheet" href="{% static '/boxicons/css/boxicons.min.css' %}">
+        <title>David Ochiel </title>
+    </head>
+    <body class="flex flex-col min-h-full">
+        <!-- {% load static %} -->
+        {% block content %}
+        <nav class="fixed w-full shadow-md top-0" id="nav">
+            <div id="top-menu" class="container px-6 h-full mx-auto flex items-center justify-between relative">
+                <div class="logo">
+                    <a href="/#hero"><h1>David Ng'uono</h1></a>
+                </div>
+
+                <div class="flex items-center">
+                    <div class="nav-links lg:flex
+                        text-base
+                        hidden
+                        space-x-8">
+                        <a href="/#about" class="">About</a>
+                        <a href="/#projects" class="">Projects</a>
+                        <a href="/#work" class="">Work</a>
+                        <a href="/#contact" class="">Contact</a>
+                    </div>
+
+                    <!-- <i class="far fa-sun" id="theme-icon"></i> -->
+                    <i class="bx bx-sun" id="theme-icon"></i>
+
+                    <a href="{% static 'files/resume.pdf' %}" class="button nav-button lg:block
+                        hidden">Resume</a>
+                    <button id="hamburger" class="hamburger lg:hidden">
+                    </button>
+                </div>
+            </div>
+
+            <div id="side-menu" class="text-lg lg:hidden flex items-center
+                justify-center h-full top-0 bottom-0 py-44 fixed">
+                <div id="side-nav-content" class="flex flex-col items-center
+                    justify-center">
+                    <div id="side-inner-menu" class="font-normal
+                        mb-20
+                        flex flex-col items-center sm:space-y-6
+                        space-y-4">
+                        <a href="/#about" class="">About</a>
+                        <a href="/#projects" class="">Projects</a>
+                        <a href="/#work" class="">Work</a>
+                        <a href="/#contact" class="">Contact</a>
+                    </div>
+                    <a href="{% static 'files/resume.pdf' %}" id="button" class="button nav-button">Resume</a>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <section id="hero" class="hero flex flex-col
+                items-start justify-center">
+                <div class="ml-1">
+                    <h3 class="sm:text-lg text-md
+                        font-bold">
+                        Hey there, Dave here,
+                    </h3>
+                </div>
+
+                <div class="my-4">
+                    <h1 class="md:text-6xl sm:text-5xl xsm:text-4xl
+                        text-3xl font-bold">{{me.name}}.
+                    </h1>
+                </div>
+
+                <div>
+                    <h2 class="md:text-5xl sm:text-4xl xsm:text-3xl font-bold">I'm
+                        a {{me.title}}.
+                    </h2>
+                </div>
+
+                <div class="my-7 max-w-2xl md:text-xl xsm:text-lg"
+                    style="line-height: 1.4;">
+                    <p>{{me.short_descr | safe}}</p>
+                </div>
+
+                <div class="flex">
+                    <a href="/#contact" class="button body-button lg:mr-5 md:mr-3 mr-2">Contact</a>
+                    <a href="{% static 'files/resume.pdf' %}" class="button body-button">Resume</a>
+                </div>
+            </section>
+
+            <section class="about" id="about">
+                <h3 class="heading about-heading">about
+                    me.</h3>
+                <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-9 md:gap-15 mt-6">
+                    <div class="about-descr md:col-span-2 lg:text-lg md:text-sm">
+                        {{me.main_descr | safe}}
+                    </div>
+                    <div class="about-image mx-auto">
+                        <img src="{% static 'images/projectBased/photos/mine_from_linkedin.png' %}"
+                            alt="" class="h-auto w-full rounded-lg">
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="projects" id="projects">
+                <h3 class="heading projects-heading">Projects.</h3>
+                <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-5
+                    relative">
+                    {% for project in projects %}
+                    <div class="project-card">
+                        {% if project.preview_link %}
+                        <a href="{{project.preview_link}}" target="_blank">
+                            <img
+                                src="{{project.image.url}}"
+                                alt=""
+                                class="block">
+                        </a>
+                        {% else %}
+                        <a href="{{project.github_link}}" target="_blank">
+                            <img
+                                src="{{project.image.url}}"
+                                alt=""
+                                class="block">
+                        </a>
+                        {% endif %}
+                        <div class="card-body">
+
+                            <div class="card-body-top">
+                                <div class="card-body-nav">
+                                    <div>
+                                        {% if project.preview_link %}
+                                        <a href="{{project.preview_link}}" target="_blank"><h5 class="card-title">{{project.title}}</h5>
+                                        </a>
+                                        {% else %}
+                                        <a href="{{project.github_link}}" target="_blank"><h5 class="card-title">{{project.title}}</h5>
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                    <div class="card-icons">
+                                        <span>
+                                            {% if project.github_link %}
+                                            <a href="{{project.github_link}}" target="_blank">
+                                                <i class="bx bxl-github"></i>
+                                            </a>
+                                            {% endif %}
+
+                                            {% if project.preview_link %}
+                                            <a href="{{project.preview_link}}" target="_blank">
+                                                <i class="bx bx-link-external"></i>
+                                            </a>
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-descr">
+                                    {% if project.preview_link %}
+                                    <a href="{{project.preview_link}}" target="_blank">
+                                        {{project.description | safe}}
+                                    </a>
+                                    {% else %}
+                                    <a href="{{project.github_link}}" target="_blank">
+                                        {{project.description | safe}}
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                {% if project.preview_link %}
+                                <a href="{{project.preview_link}}" target="_blank">
+                                    <ul>
+                                        {% for tag in project.tags.all %}
+                                        <li>{{tag}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </a>
+                                {% else %}
+                                <a href="{{project.github_link}}" target="_blank">
+                                    <ul>
+                                        {% for tag in project.tags.all %}
+                                        <li>{{tag}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="work relative" id="work">
+                <div class="md:w-2/3 mx-auto">
+                    <h3 class="heading work-heading">Work
+                        Experience.</h3>
+                    <div class="tab-nav-bar mb-8">
+                        <div class="tab-navigation">
+                            <i class="bx bx-chevron-left left-btn"></i>
+                            <i class="bx bx-chevron-right right-btn"></i>
+                            <ul class="tab-menu">
+                                <li class="tab-btn active">{{firstPlaceOfWork.place}}</li>
+                                {% for otherPlaceOfWork in otherPlacesOfWork %}
+                                <li class="tab-btn">{{otherPlaceOfWork.place}}</li>
+                                {% endfor %}
+                                <!-- <li class="tab-btn">Andela</li>
+                                <li class="tab-btn">Android</li>
+                                <li class="tab-btn">IOS</li>
+                                <li class="tab-btn">IOS</li>
+                                <li class="tab-btn">IOS</li>
+                                <li class="tab-btn">IOS</li>
+                                <li class="tab-btn">IOS</li>
+                                <li class="tab-btn">IOS</li>
+                                <li class="tab-btn">ML</li> -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tab-contents">
+                        <div class="tab active">
+                            <div class="role-heading">
+                                <h3>
+                                    <span class="role">{{firstExperience.job_title}}</span>
+                                    <span class="company">@</span>
+                                    <span class="company">
+                                        <a href="{{firstExperience.place_of_Work_link}}" class="link-underline">
+                                            {{firstExperience.place_of_Work}}</a>
+                                    </span>
+                                </h3>
+                            </div>
+
+                            <p class="time-period">{{firstExperience.period}}</p>
+                            <div class="accomplishments">
+                                {{firstExperience.tasks | safe}}
+                            </div>
+                        </div>
+
+                        {% for otherExperience in otherExperiences %}
+                        <div class="tab">
+                            <div class="role-heading">
+                                <h3>
+                                    <span class="role">{{otherExperience.job_title}}</span>
+                                    <span class="company">@</span>
+                                    <span class="company">
+                                        <a href="{{otherExperience.place_of_Work_link}}" class="link-underline">
+                                            {{otherExperience.place_of_Work}}
+                                        </a>
+                                    </span>
+                                </h3>
+                            </div>
+
+                            <p class="time-period">{{otherExperience.period}}</p>
+                            <div class="accomplishments">
+                                {{otherExperience.tasks | safe}}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="contact" id="contact">
+
+                <div class="text-left md:w-2/3 mx-auto">
+                    <h3 class="heading contact-heading">Contact.</h3>
+                    <p class="contact-text">Got something for me? My inbox is always open for a chat, for new opportunities, or even just saying hi. I'll do my best to get back to you.</p>
+                    <form action="{% url 'everything' %}" method="POST" name="contactForm" onsubmit="return validateForm()">
+                        {% csrf_token %}
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" name="phone" required>
+
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" style="height:200px" required></textarea>
+
+                        <input type="submit" class="button body-button" value="Submit" id="submit">
+                    </form>
+                </div>
+
+            </section>
+        </main>
+        {% endblock %}
+
+
+        <footer id="footer" class="bottom-0 mt-auto w-full py-12 text-center">
+            <div class="container mx-auto px-4 flex flex-col justify-center items-center">
+                <!-- <div>
+                    <p>&copy; <span class="year"></span> David Ng'uono</p>
+                </div> -->
+                <!-- <div>
+                    <a href="mailto:nguonodave@gmail.com" class="footer-mail">nguonodave@gmail.com</a>
+                </div> -->
+
+                <div class="footer-text">
+                    <a href="https://github.com/nguonodave/v1-ng" target="_blank"><p>Designed and coded by David</p></a>
+                </div>
+
+                <div class="socials text-xl">
+                    <ul>
+                        <a href="https://twitter.com/nguonodave" target="_blank"><li><i class='bx bxl-twitter'></i></li></a>
+                        <a href="https://www.linkedin.com/in/nguonodave/" target="_blank"><li><i class='bx bxl-linkedin'></i></li></a>
+                        <a href="https://github.com/nguonodave" target="_blank"><li><i class='bx bxl-github'></i></li></a>
+                        <a href="mailto:nguonodave@gmail.com" target="_blank"><li><i class='bx bx-envelope'></i></li></a>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script src="{% static '/js/app.js' %}"></script>
+    </body>
+</html>
