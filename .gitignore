@@ -2,7 +2,7 @@ __pycache__/
 node_modules
 NFenv
 src
-dist/static/boxicons
+static/boxicons
 package-lock.json
 package.json
 tailwind.config.js
