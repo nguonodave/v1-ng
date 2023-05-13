@@ -145,7 +145,7 @@ tab_btns.forEach((tab_btn, i) => {
 // const date = new Date();
 // document.querySelector(".year").innerHTML = date.getFullYear();
 
-// // CONTACT FORM VALIDATION------------------------------------------------------------------------------------------------------
+// // CONTACT FORM VALIDATION AND EMAIL SUBMISSION------------------------------------------------------------------------------------------------------
 function validateForm() {
   let name = document.forms["contactForm"]["name"].value;
   let email = document.forms["contactForm"]["email"].value;
@@ -193,31 +193,3 @@ function validateForm() {
 function hasNumber(myString) {
   return /\d/.test(myString);
 }
-
-// // // CONTACT FORM EMAIL SUBMISSION------------------------------------------------------------------------------------------------------
-// var submit = document.getElementById("submit");
-
-// submit.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   var name = document.getElementById("name").value;
-//   var email = document.getElementById("email").value;
-//   var phone = document.getElementById("phone").value;
-//   var message = document.getElementById("message").value;
-//   bodyMessage =
-//     "Name: " +
-//     name +
-//     "<br/> Email: " +
-//     email +
-//     "<br/> Phone: " +
-//     phone +
-//     "<br/>" +
-//     message;
-
-//   Email.send({
-//     SecureToken: "f754b95e-c2be-4cd6-9c4d-1170b0a20149",
-//     To: "nguonodave.portfolio@gmail.com",
-//     From: "nguonodave.portfolio@gmail.com",
-//     Subject: "NEW PORTFOLIO CONTACT FROM",
-//     Body: bodyMessage,
-//   }).then((message) => alert(message));
-// });
