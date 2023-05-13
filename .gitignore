@@ -1,6 +1,6 @@
 __pycache__/
 node_modules
-NFenv
+NGenv
 src
 dist/static/boxicons
 dist/staticfiles/boxicons
