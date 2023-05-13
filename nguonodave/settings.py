@@ -128,20 +128,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-# STATIC_URL = "/dist/static/"
-# STATIC_ROOT = BASE_DIR / 'dist/staticfiles' # where static files are uploaded during production after running collectstatic
-# STATICFILES_DIRS = [ # where django finds and reads our static files
-#     BASE_DIR / 'dist/static'
-# ]
+STATIC_URL = "/dist/static/"
+STATIC_ROOT = BASE_DIR / 'dist/staticfiles' # where static files are uploaded during production after running collectstatic
+STATICFILES_DIRS = [ # where django finds and reads our static files
+    BASE_DIR / 'dist/static'
+]
 
-STATIC_URL = "static/"
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+# STATIC_URL = "static/"
+# STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # media files config
 MEDIA_URL = "/images/"
-# MEDIA_ROOT = BASE_DIR / 'dist/static/images/uploaded' # where user uploaded files like images go
-MEDIA_ROOT = BASE_DIR / 'static/images/uploaded' # where user uploaded files like images go
+MEDIA_ROOT = BASE_DIR / 'dist/static/images/uploaded' # where user uploaded files like images go
+# MEDIA_ROOT = BASE_DIR / 'static/images/uploaded' # where user uploaded files like images go
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
