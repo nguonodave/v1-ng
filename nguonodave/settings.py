@@ -129,7 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "/dist/static/"
-STATIC_ROOT = BASE_DIR / 'staticfiles_build', 'dist/staticfiles' # where static files are uploaded during production after running collectstatic
+STATIC_ROOT = BASE_DIR / 'dist/staticfiles' # where static files are uploaded during production after running collectstatic
 STATICFILES_DIRS = [ # where django finds and reads our static files
     BASE_DIR / 'dist/static'
 ]
