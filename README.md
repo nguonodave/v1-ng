@@ -15,7 +15,7 @@ This is my personal portfolio website built using HTML, CSS/Tailwind CSS, JavaSc
 
 To run the portfolio website locally, follow these steps:
 
-1. Clone the repository: `git clone [repository-url]`
+1. Clone the repository: `git clone https://github.com/nguonodave/v1-ng`
 2. Install the required dependencies: `pip install -r requirements.txt`
 3. Run the Django development server: `python manage.py runserver`
 4. Open the website in your browser at `http://localhost:8000`
