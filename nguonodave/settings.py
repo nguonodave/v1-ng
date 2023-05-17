@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-k7gxwv$s=zp132^n&ls=1v*sqv)h#igj(mu+*j$7g+=4s*t$qf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', '.now.sh']
+ALLOWED_HOSTS = ['127.0.0.1', 'nguonodave.pythonanywhere.com']
 
 
 # Application definition
@@ -139,7 +139,7 @@ STATICFILES_DIRS = [ # where django finds and reads our static files
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # media files config
-MEDIA_URL = "/images/"
+MEDIA_URL = "dist/static/images/uploaded/"
 MEDIA_ROOT = BASE_DIR / 'dist/static/images/uploaded' # where user uploaded files like images go
 # MEDIA_ROOT = BASE_DIR / 'static/images/uploaded' # where user uploaded files like images go
 
