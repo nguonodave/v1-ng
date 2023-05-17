@@ -26,7 +26,7 @@ The portfolio website has been deployed on PythonAnywhere:
 
 Here is the link https://nguonodave.pythonanywhere.com/
 
-Deployment README coming soon :)
+Deployment README coming soon 😀
 
 ## Technologies Used
 
