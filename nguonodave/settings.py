@@ -139,7 +139,8 @@ STATICFILES_DIRS = [ # where django finds and reads our static files
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # media files config
-MEDIA_URL = "dist/static/images/uploaded/"
+# MEDIA_URL = "dist/static/images/uploaded/"
+MEDIA_URL = "/images/uploaded/"
 MEDIA_ROOT = BASE_DIR / 'dist/static/images/uploaded' # where user uploaded files like images go
 # MEDIA_ROOT = BASE_DIR / 'static/images/uploaded' # where user uploaded files like images go
 
