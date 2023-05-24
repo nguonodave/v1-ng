@@ -8,6 +8,8 @@ package-lock.json
 package.json
 tailwind.config.js
 .env
+vercel.json
+build_files.sh
 # projectCategories
 
 
