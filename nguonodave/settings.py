@@ -58,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'nguonodave.urls'
@@ -129,10 +131,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "/dist/static/"
-STATIC_ROOT = BASE_DIR / 'dist/staticfiles' # where static files are uploaded during production after running collectstatic
+STATIC_ROOT = BASE_DIR / 'dist/staticfiles' # by default, where static files are uploaded during production after running collectstatic
+# STATIC_ROOT = '/home/nguonodave/v1-ng/dist/staticfiles/' # for production on python anywhere, where static files are uploaded during production after running collectstatic
 STATICFILES_DIRS = [ # where django finds and reads our static files
     BASE_DIR / 'dist/static'
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # STATIC_URL = "static/"
 # STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
