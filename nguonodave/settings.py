@@ -146,6 +146,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 # media files config
 # MEDIA_URL = "dist/static/images/uploaded/"
 MEDIA_URL = "/images/uploaded/"
+# MEDIA_URL = "dist/static/images/uploaded/" # use this for production in python anywhere
 MEDIA_ROOT = BASE_DIR / 'dist/static/images/uploaded' # where user uploaded files like images go
 # MEDIA_ROOT = BASE_DIR / 'static/images/uploaded' # where user uploaded files like images go
 
